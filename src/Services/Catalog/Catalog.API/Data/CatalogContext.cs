@@ -7,10 +7,10 @@ namespace Catalog.API.Data
     {
         public CatalogContext(IConfiguration configuration)
         {
-            var client = new MongoClient(configuration.GetValue<string>("DatabaseSettings: ConnectionString"));
-            var db = client.GetDatabase(configuration.GetValue<string>("DatabaseSettings: DatabaseName"));
+            var client = new MongoClient(configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
+            var db = client.GetDatabase(configuration.GetValue<string>("DatabaseSettings:DatabaseName"));
 
-            var Products = db.GetCollection<ProductDb>(configuration.GetValue<string>("DatabaseSettings: CollectionName"));
+            var Products = db.GetCollection<ProductDb>(configuration.GetValue<string>("DatabaseSettings:CollectionName"));
             CatalogContextSeed.SeedData(Products);
         }
 
