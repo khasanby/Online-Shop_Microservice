@@ -16,7 +16,7 @@ namespace Basket.API.Repositories
         /// <summary>
         /// Returns basket by user name.
         /// </summary>
-        public async Task<ShoppingCartDb> GetBasketByUserNameAsync(string userName)
+        public async Task<ShoppingCartDb> GetBasketAsync(string userName)
         {
             var basket = await _redisCache.GetStringAsync(userName);
 
@@ -32,7 +32,7 @@ namespace Basket.API.Repositories
         {
             await _redisCache.SetStringAsync(basket.UserName, JsonConvert.SerializeObject(basket));
 
-            return await GetBasketByUserNameAsync(basket.UserName);
+            return await GetBasketAsync(basket.UserName);
         }
 
         /// <summary>

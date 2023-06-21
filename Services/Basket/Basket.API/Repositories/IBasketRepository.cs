@@ -7,7 +7,7 @@ namespace Basket.API.Repositories
         /// <summary>
         /// Returns basket by user name.
         /// </summary>
-        public Task<ShoppingCartDb> GetBasketByUserNameAsync(string userName);
+        public Task<ShoppingCartDb> GetBasketAsync(string userName);
         
         /// <summary>
         /// Updates the basket.
