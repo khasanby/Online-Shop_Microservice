@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Basket.API.Entities;
+﻿using Basket.API.Entities;
+using Basket.API.GrpcServices;
 using Basket.API.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -11,12 +11,12 @@ namespace Basket.API.Controllers
     public sealed class BasketController : ControllerBase
     {
         private readonly IBasketRepository _repository;
-        private readonly IMapper _mapper;
+        private readonly DiscountGrpcService _grpcService;
 
-        public BasketController(IBasketRepository repository, IMapper mapper)
+        public BasketController(IBasketRepository repository, DiscountGrpcService grpcService)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _grpcService = grpcService;
         }
 
         [HttpGet("{userName}", Name = "GetBasket")]
@@ -31,6 +31,13 @@ namespace Basket.API.Controllers
         [ProducesResponseType(typeof(ShoppingCartDb), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ShoppingCartDb>> UpdateBasket([FromBody] ShoppingCartDb basket)
         {
+            foreach (var item in basket.Items)
+            {
+                var couponInfo = await _grpcService.GetDiscountAsync(item.ProductName);
+                item.Price = couponInfo.Amount;
+
+            }
+
             return Ok(await _repository.UpdateBasketAsync(basket));
         }
 
