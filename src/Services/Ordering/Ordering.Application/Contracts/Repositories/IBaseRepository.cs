@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 using Ordering.Domain.Common;
 
-namespace Ordering.Application.Contracts.Persistence;
+namespace Ordering.Application.Contracts.Repositories;
 
 public interface IBaseRepository<T>
     where T : BaseEntity
@@ -45,10 +45,10 @@ public interface IBaseRepository<T>
     /// <summary>
     ///     Updates the entity.
     /// </summary>
-    Task<T> UpdateAsync(T entity);
+    Task UpdateAsync(T entity);
 
     /// <summary>
     ///     Deletes the entity.
     /// </summary>
-    Task<T> DeleteAsync(T entity);
+    Task DeleteAsync(T entity);
 }

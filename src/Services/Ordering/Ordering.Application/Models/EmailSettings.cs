@@ -1,6 +1,6 @@
 ﻿namespace Ordering.Application.Models;
 
-internal sealed class EmailSettings
+public sealed class EmailSettings
 {
     /// <summary>
     ///     Gets or sets api key.
