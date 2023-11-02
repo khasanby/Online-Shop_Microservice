@@ -1,9 +1,8 @@
 ﻿using MediatR;
 
-namespace Ordering.Application.Features.Orders.Commands.DeleteOrder
+namespace Ordering.Application.Features.Orders.Commands.DeleteOrder;
+
+public sealed class DeleteOrderCommand : IRequest
 {
-    public sealed class DeleteOrderCommand : IRequest
-    {
-        public int Id { get; set; }
-    }
+    public int Id { get; set; }
 }

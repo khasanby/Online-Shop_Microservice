@@ -1,9 +1,8 @@
-﻿namespace Ordering.Application.Exceptions
+﻿namespace Ordering.Application.Exceptions;
+
+public sealed class NotFoundException : ApplicationException
 {
-    public sealed class NotFoundException : ApplicationException
+    public NotFoundException(string name, object key) : base($"Entity \"{name}\" ({key}) was not found.")
     {
-        public NotFoundException(string name, object key) : base($"Entity \"{name}\" ({key}) was not found.")
-        {
-        }
     }
 }

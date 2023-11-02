@@ -1,9 +1,8 @@
 ﻿using Ordering.Application.Models;
 
-namespace Ordering.Application.Contracts.Infrastucture
+namespace Ordering.Application.Contracts.Infrastucture;
+
+public interface IEmailService
 {
-    public interface IEmailService
-    {
-        public Task<bool> SendEmailAsync(Email email);
-    }
+    public Task<bool> SendEmailAsync(Email email);
 }

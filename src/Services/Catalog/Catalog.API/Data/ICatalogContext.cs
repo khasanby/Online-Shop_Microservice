@@ -1,13 +1,12 @@
 ﻿using Catalog.API.Models;
 using MongoDB.Driver;
 
-namespace Catalog.API.Data
+namespace Catalog.API.Data;
+
+public interface ICatalogContext
 {
-    public interface ICatalogContext
-    {
-        /// <summary>
-        /// Gets a collection of products.
-        /// </summary>
-        IMongoCollection<ProductDb> Products { get; }
-    }
+    /// <summary>
+    ///     Gets a collection of products.
+    /// </summary>
+    IMongoCollection<ProductDb> Products { get; }
 }
