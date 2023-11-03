@@ -101,9 +101,16 @@ namespace Ordering.Infrastructure.Repositories.Base
             return await _dbContext.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public Task<T> CreateAsync(T entity)
+        /// <summary>
+        /// Creates a new entity.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public async Task<T> CreateAsync(T entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<T>().Add(entity);
+            await _dbContext.SaveChangesAsync();
+            return entity;
         }
 
         /// <summary>
