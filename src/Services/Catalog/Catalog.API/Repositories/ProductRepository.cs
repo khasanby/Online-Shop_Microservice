@@ -7,7 +7,7 @@ namespace Catalog.API.Repositories;
 public sealed class ProductRepository : IProductRepository
 {
     /// <summary>
-    ///     Instance of catalog context.
+    /// Instance of catalog context.
     /// </summary>
     private readonly ICatalogContext _context;
 
@@ -17,7 +17,7 @@ public sealed class ProductRepository : IProductRepository
     }
 
     /// <summary>
-    ///     Returns all products.
+    /// Returns all products.
     /// </summary>
     public async Task<IEnumerable<ProductDb>> GetAllProductsAsync()
     {
@@ -26,7 +26,7 @@ public sealed class ProductRepository : IProductRepository
     }
 
     /// <summary>
-    ///     Returns a product by id.
+    /// Returns a product by id.
     /// </summary>
     public async Task<ProductDb> GetProductByIdAsync(string id)
     {
@@ -36,7 +36,7 @@ public sealed class ProductRepository : IProductRepository
     }
 
     /// <summary>
-    ///     Returns a product by name.
+    /// Returns a product by name.
     /// </summary>
     public async Task<IEnumerable<ProductDb>> GetProductByNameAsync(string name)
     {
@@ -48,7 +48,7 @@ public sealed class ProductRepository : IProductRepository
     }
 
     /// <summary>
-    ///     Returns a collection of products by category.
+    /// Returns a collection of products by category.
     /// </summary>
     /// <param name="categoryName"></param>
     /// <returns></returns>
@@ -62,7 +62,7 @@ public sealed class ProductRepository : IProductRepository
     }
 
     /// <summary>
-    ///     Creates a product.
+    /// Creates a product.
     /// </summary>
     public async Task CreateProductAsync(ProductDb product)
     {
@@ -70,7 +70,7 @@ public sealed class ProductRepository : IProductRepository
     }
 
     /// <summary>
-    ///     Updates a product.
+    /// Updates a product.
     /// </summary>
     public async Task<bool> UpdateProductAsync(ProductDb product)
     {
@@ -81,7 +81,7 @@ public sealed class ProductRepository : IProductRepository
     }
 
     /// <summary>
-    ///     Deletes a product by id.
+    /// Deletes a product by id.
     /// </summary>
     public async Task<bool> DeleteProductByIdAsync(string id)
     {
