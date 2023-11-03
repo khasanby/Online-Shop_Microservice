@@ -14,7 +14,7 @@ public sealed class BasketRepository : IBasketRepository
     }
 
     /// <summary>
-    ///     Returns basket by user name.
+    /// Returns basket by user name.
     /// </summary>
     public async Task<ShoppingCartDb> GetBasketAsync(string userName)
     {
@@ -26,7 +26,7 @@ public sealed class BasketRepository : IBasketRepository
     }
 
     /// <summary>
-    ///     Updates the basket.
+    /// Updates the basket.
     /// </summary>
     public async Task<ShoppingCartDb> UpdateBasketAsync(ShoppingCartDb basket)
     {
@@ -36,7 +36,7 @@ public sealed class BasketRepository : IBasketRepository
     }
 
     /// <summary>
-    ///     Deletes the basket.
+    /// Deletes the basket.
     /// </summary>
     public async Task DeleteBasketAsync(string userName)
     {

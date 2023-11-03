@@ -1,8 +1,6 @@
-﻿using MediatR;
+﻿namespace Basket.API.Entities;
 
-namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder;
-
-public sealed class CheckoutOrderCommand : IRequest<int>
+public sealed class BasketCheckout
 {
     /// <summary>
     /// Gets or sets user name.
